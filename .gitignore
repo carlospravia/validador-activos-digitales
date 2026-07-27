@@ -34,3 +34,6 @@ coverage/
 
 # TypeScript
 *.tsbuildinfo
+
+# Agent tooling
+.atl/
