@@ -11,6 +11,7 @@ import {
   XCircle,
 } from 'lucide-react'
 import { SAMPLE_FILES } from './data/sampleFiles'
+import { HtmlCodeEditor } from './components/HtmlCodeEditor'
 import type {
   InputSource,
   StageId,
@@ -206,18 +207,17 @@ export default function App() {
         </select>
 
         <div className="row">
-          <label htmlFor={editorId}>Pegar código HTML</label>
+          <label htmlFor={editorId}>Pegar o editar código HTML</label>
         </div>
-        <textarea
+        <HtmlCodeEditor
           id={editorId}
           value={html}
-          onChange={(e) => {
-            setHtml(e.target.value)
+          placeholder="Pega aquí tu HTML o carga un archivo/ejemplo…"
+          onChange={(value) => {
+            setHtml(value)
             setSource('paste')
             setFileName(undefined)
           }}
-          spellCheck={false}
-          placeholder="Pega aquí tu HTML…"
         />
 
         <div className="row">
