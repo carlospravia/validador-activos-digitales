@@ -95,13 +95,13 @@ describe('accessibility Paso 3', () => {
 })
 
 describe('runValidation orchestrator', () => {
-  it('never throws on garbage input and returns errors', () => {
-    const run = runValidation({ html: '', stage: 1, source: 'paste' })
+  it('never throws on garbage input and returns errors', async () => {
+    const run = await runValidation({ html: '', stage: 1, source: 'paste' })
     expect(run.results.some((r) => r.status === 'error')).toBe(true)
   })
 
-  it('includes score and measurements on stage 5', () => {
-    const run = runValidation({
+  it('includes score and measurements on stage 5', async () => {
+    const run = await runValidation({
       html: `<!DOCTYPE html><html lang="es"><head><title>Guía práctica de SEO local para negocios</title>
         <meta name="description" content="Aprende cómo mejorar el SEO local de tu negocio en Costa Rica con pasos claros, ejemplos y checklist accionable para tu sitio.">
         </head><body><main><article>

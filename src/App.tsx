@@ -108,8 +108,8 @@ export default function App() {
     return run.results.filter((r) => r.status === filter)
   }, [run, filter])
 
-  function handleValidate() {
-    const next = runValidation({ html, stage, source, fileName })
+  async function handleValidate() {
+    const next = await runValidation({ html, stage, source, fileName })
     setRun(next)
     setFilter('all')
   }
@@ -221,7 +221,7 @@ export default function App() {
         />
 
         <div className="row">
-          <button type="button" className="btn btn-primary" onClick={handleValidate}>
+          <button type="button" className="btn btn-primary" onClick={() => void handleValidate()}>
             Validar archivo
           </button>
           <button

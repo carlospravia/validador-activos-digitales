@@ -32,4 +32,6 @@
 
 ## Implementation notes
 
-- `html-validate` se omitió en runtime: el parseo usa `DOMParser` + chequeos sobre markup crudo (más predecible en browser/jsdom sin bundling pesado). Las reglas de sintaxis del SPEC quedan cubiertas por `generalValidator`.
+- `html-validate` (browser bundle) integrado en `validateHtmlSyntax` para anidamiento/sintaxis real (`close-order`, `void-content`, etc.).
+- Las reglas pedagógicas y de etapa se mantienen; html-validate complementa sin exigir `lang`/`title` en Paso 1.
+- Parseo estructural de consulta sigue con `DOMParser` (sin ejecutar scripts del estudiante).

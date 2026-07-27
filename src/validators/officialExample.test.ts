@@ -14,11 +14,11 @@ const CASES: { key: keyof typeof SAMPLE_FILES; stage: StageId; fileName: string 
 describe('official example activo-digital-blog', () => {
   it.each(CASES)(
     '$fileName validates on stage $stage without critical structural errors',
-    ({ key, stage, fileName }) => {
+    async ({ key, stage, fileName }) => {
       const sample = SAMPLE_FILES[key]
       expect(sample.fileName).toBe(fileName)
 
-      const run = runValidation({
+      const run = await runValidation({
         html: sample.html,
         stage,
         source: 'file',
@@ -47,8 +47,8 @@ describe('official example activo-digital-blog', () => {
     expect(html).toMatch(/\[EVIDENCIA PENDIENTE\]/)
   })
 
-  it('bad sample produces at least one error', () => {
-    const run = runValidation({
+  it('bad sample produces at least one error', async () => {
+    const run = await runValidation({
       html: SAMPLE_FILES.bad.html,
       stage: 1,
       source: 'sample',

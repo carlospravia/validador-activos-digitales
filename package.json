@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axe-core": "^4.10.3",
+    "html-validate": "^10.9.0",
     "json5": "^2.2.3",
     "lucide-react": "^0.511.0",
     "prismjs": "^1.30.0",

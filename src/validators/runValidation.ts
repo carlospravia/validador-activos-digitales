@@ -4,6 +4,7 @@ import { resetResultIds } from '../utils/resultFactory'
 import { computeScore, SCORE_DISCLAIMER } from '../utils/scoring'
 import { suggestMeasurements } from '../utils/measurement'
 import { validateGeneralRules } from './generalValidator'
+import { validateHtmlSyntax } from './htmlSyntaxValidator'
 import { validateStage1, validateFileName } from './semanticValidator'
 import { validateStage2 } from './onPageValidator'
 import { validateStage3 } from './accessibilityValidator'
@@ -35,7 +36,7 @@ function categoryForStage(stage: StageId): string {
 /**
  * Fail-safe orchestrator: never throws to the UI.
  */
-export function runValidation(input: ValidationInput): ValidationRun {
+export async function runValidation(input: ValidationInput): Promise<ValidationRun> {
   resetResultIds()
   const validatedAt = new Date().toLocaleString()
   try {
@@ -44,6 +45,8 @@ export function runValidation(input: ValidationInput): ValidationRun {
     if (!input.html.trim()) {
       return { results: general, stage: input.stage, fileName: input.fileName, validatedAt }
     }
+
+    const syntax = await validateHtmlSyntax(input.html)
 
     const fileResults = validateFileName(
       expectedFile(input.stage),
@@ -76,7 +79,7 @@ export function runValidation(input: ValidationInput): ValidationRun {
       }
     }
 
-    const results = [...general, ...fileResults, ...stageResults]
+    const results = [...general, ...syntax, ...fileResults, ...stageResults]
     const run: ValidationRun = {
       results,
       stage: input.stage,
