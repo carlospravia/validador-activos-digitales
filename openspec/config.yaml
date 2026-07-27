@@ -26,9 +26,7 @@ rules:
     - Group by phase; keep tasks completable in one session
     - Do not include implementation work outside the change capabilities
   apply:
-    tdd: false
-    test_command: ""
+    - Follow existing code patterns when implementation begins
+    - Keep validation 100% local in the browser
   verify:
-    test_command: ""
-    build_command: ""
-    coverage_threshold: 0
+    - Prefer typecheck, unit tests for critical rules, and production build
