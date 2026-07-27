@@ -5,6 +5,8 @@ Aplicación web estática para validar progresivamente archivos HTML del Curso P
 ## Documentación
 
 - Especificación de producto: [`docs/SPEC-Validador-de-Activos-Digitales.md`](docs/SPEC-Validador-de-Activos-Digitales.md)
+- Ejemplo oficial incremental: [`docs/examples/activo-digital-blog/`](docs/examples/activo-digital-blog/)
+- Índice de ejemplos: [`docs/examples/README.md`](docs/examples/README.md)
 - OpenSpec (cambios activos): `openspec/changes/`
 
 ## Stack
