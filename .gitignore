@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# Environment (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs / coverage
+logs/
+*.log
+npm-debug.log*
+coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo

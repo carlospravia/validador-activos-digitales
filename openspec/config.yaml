@@ -1,0 +1,34 @@
+schema: spec-driven
+
+context: |
+  Project: LEAD Digital Asset Validator (validador-activos-digitales)
+  Product spec: docs/SPEC-Validador-de-Activos-Digitales.md
+  Stack: Vite + React + TypeScript; static SPA; Firebase Hosting
+  Constraints: no backend, no auth, no database; all HTML validation runs locally in the browser
+  Docs language: Spanish (product requirements and OpenSpec narrative)
+  Code language: English (identifiers, comments, commits)
+  Firebase projectId: validador-activos-digitales (config via VITE_FIREBASE_* env vars; never hardcode secrets)
+  Key deps (planned): html-validate, axe-core, ajv, json5, lucide-react
+  Do not execute student HTML scripts during validation
+
+rules:
+  proposal:
+    - Reference docs/SPEC-Validador-de-Activos-Digitales.md sections when applicable
+    - Include explicit Non-goals aligned with MVP out-of-scope
+  specs:
+    - Use Given/When/Then scenarios (WHEN/THEN bullets)
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Write requirement prose in Spanish; capability folder names in kebab-case English
+  design:
+    - Prefer src/validators and src/rules layout from the product SPEC
+    - Document local-only parsing (DOMParser / html-validate) without executing student scripts
+  tasks:
+    - Group by phase; keep tasks completable in one session
+    - Do not include implementation work outside the change capabilities
+  apply:
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: ""
+    coverage_threshold: 0
